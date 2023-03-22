@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lan="en" and dir="Itr">
+<head>
+    <meta charset="utf-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login_styles.css') }}">
+</head>
+<body>
+    <form class="box" method="post" autocomplete="off">
+        <h1>LOGIN</h1>
+        {% if error %}
+		<div class="message">{{ error }}</div>
+		{% endif %}
+        <input type="text" name="username" id="username" required>
+        <input type="password" name="password" id="password" required>
+        <input type="submit" name="" value="Login">
+        <p class="message">Not registered? <a href="/register">Create an account</a></p>
+    </form>
+</body>
+</html>
+
+

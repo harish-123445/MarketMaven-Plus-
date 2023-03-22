@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search</title>
+  <style>
+    body{
+      background-color: #f5f5f5;
+
+    }
+    .tabvideo {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      flex-direction: row; /* changed to row */
+      justify-content: space-between; /* added */
+      text-align:center;
+    }
+    /* Style the navigation bar */
+      .navbar {
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-between; /* added */
+        padding-bottom:20px;
+        background-color: #333;
+        overflow: hidden;
+        position: static;
+        top: 0;
+        width: 100%;
+      }
+      .navbar h4{
+        color:white;
+        margin-left:500px;
+        font-size:30px;
+      }
+      .navbar form {
+        float:left;
+        margin-right: 20px;
+        margin-top:20px;
+        margin-bottom:8px;
+        padding-top:10px;
+      }
+    
+    
+    .table-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; /* changed to flex-start */
+      width: 60%; /* changed to 60% to give more space to videos */
+      margin: 50px;
+    }
+    
+    table {
+      border-collapse: collapse;
+      width: 90%; /* changed to 100% to take up the full width of .table-container */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .videos {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40%;
+      margin-top: 200px;
+      float: right; /* added float property */
+    }
+    
+    .videos iframe {
+      width: 60%; /* reduced the width to 70% */
+      height: 20%; /* reduced the height to 40% */
+      margin-bottom: 100px;
+      margin-right: 80px;
+    }
+    h1{
+      text-align:center;
+    }
+    
+    .search{
+      background-color: #f5f5f5;
+      margin-top: 40px;
+      width: 100%;
+      text-align: center;
+      justify-content:center;
+    }
+    input[type="text"] {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 45%;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
+    
+    th {
+      background-color: #4CAF50;
+      color: white;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    td {
+      border: 1px solid #ddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    
+    tr:hover {
+      background-color: #ddd;
+    }
+    footer {
+      font-family: Arial, sans-serif;
+      justify-content: center;
+      background-color: #333;
+      padding-top: 10px;
+      margin-bottom: 0px;
+      text-align: center;
+      padding-bottom: 5px;
+      color: white;
+    }
+    footer p{
+      font-size:20px;
+    }
+
+  </style>    
+  </head>
+  <body>
+    <div class="navbar">
+      <h4>Welcome to stock Market Analyzer</h4>
+      <form action="/logout" method="post" class="logout-form">
+        <input type="submit" value="Logout">
+      </form>
+    </div>
+    <form class="search" action="/search" method="post">
+      <h1>Search</h1>
+      <input type="text"  autocomplete="off" id="search" name="search"><br><br>
+      <input type="submit" value="Search">
+    </form>
+
+    <div class="tabvideo">
+      <div class="table-container">
+      {% for index_name in indices %}
+          <h1>{{ index_name }}</h1>
+          <table>
+              <thead>
+                  <tr>
+                      <th>Type</th>
+                      <th>Value</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for index_type, index_value in indices[index_name].items() %}
+                      <tr>
+                          <td>{{ index_type }}</td>
+                          <td>{{ index_value }}</td>
+                      </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      {% endfor %}
+      <h1>Top Gainers</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Open Price</th>
+            <th>High Price</th>
+            <th>Low Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for company in top_gainers %}
+          <tr>
+            <td>{{ company['symbol'] }}</td>
+            <td>{{ company['openPrice'] }}</td>
+            <td>{{ company['highPrice'] }}</td>
+            <td>{{ company['lowPrice'] }}</td>
+            <td>{{ company['lastPrice'] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <h1>Top Losers</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Open Price</th>
+            <th>High Price</th>
+            <th>Low Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for company in top_losers %}
+          <tr>
+            <td>{{ company['symbol'] }}</td>
+            <td>{{ company['openPrice'] }}</td>
+            <td>{{ company['highPrice'] }}</td>
+            <td>{{ company['lowPrice'] }}</td>
+            <td>{{ company['lastPrice'] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+      <div class="videos">
+        <iframe width="420" height="345" src="https://www.youtube.com/embed/fzp02ud0AHc?autoplay=1"></iframe>
+        <iframe width="420" height="345" src="https://www.youtube.com/embed/SkCnV1-WDnU?autoplay=1"></iframe>
+        <iframe width="420" height="345" src="https://www.youtube.com/embed/mRfVY9Wbnrs?autoplay=1"></iframe>
+        <iframe width="420" height="345" src="https://www.youtube.com/embed/3WI9RZODuag?autoplay=1"></iframe>
+        
+    </div>
+  </div>
+  <footer ><p>All rights reserved &copy; Stock Market Screener 2023</p></footer>
+  </body>
+</html>
+
+
+

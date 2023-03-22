@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stock Market Screener - {{ name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stock_style.css') }}">
+  </head>
+  <body>
+    <h1>Yahoo Finance News Headlines</h1>
+    <div id="headline-container">
+        {% for headline in headlines %}
+        <div class="headline">{{ headline }}</div>
+        {% endfor %}
+    </div>
+
+    <script>
+        // Get all the headline elements
+        var headlines = document.querySelectorAll('.headline');
+
+        // Set the current headline index to 0
+        var currentHeadline = 0;
+
+        // Show the next headline after a certain amount of time
+        var showNextHeadline = function() {
+            // Hide the current headline
+            headlines[currentHeadline].style.display = 'none';
+
+            // Increment the current headline index
+            currentHeadline++;
+
+            // If the index is greater than or equal to the number of headlines, reset it to 0
+            if (currentHeadline >= headlines.length) {
+                currentHeadline = 0;
+            }
+
+            // Show the next headline
+            headlines[currentHeadline].style.display = 'block';
+
+            // Call this function again after 5 seconds
+            setTimeout(showNextHeadline, 5000);
+        };
+
+        // Start showing the headlines
+        showNextHeadline();
+    </script>
+    
+    <div class="container">
+      <h1>Stock Market Screener</h1>
+      <h2>{{ name }}</h2>
+      <button onclick="openLink('{{ chart_link }}')" class="button">Charts</button>
+      <script>
+        function openLink(url) {
+            window.open(url, '_blank');
+        }
+    </script>
+      <table>
+        <tr>
+          <th>Low Price</th>
+          <th>Open Price</th>
+          <th>Close Price</th>
+          <th>Day Low Price</th>
+          <th>Day High Price</th>
+        </tr>
+        <tr>
+          <td>{{ lp }}</td>
+          <td>{{ op }}</td>
+          <td>{{ cp }}</td>
+          <td>{{ dl }}</td>
+          <td>{{ dh }}</td>
+        </tr>
+      </table>
+
+      <form action="/logout" method="post" class="logout-form">
+        <input type="submit" value="Logout">
+      </form>
+    </div>
+    <h1>Balance Sheet</h1>
+    <table>
+      <thead>
+        <tr>
+          {% for header in headers %}
+            <th>{{ header }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+          {% if loop.index > 1 %}
+            <tr>
+              {% for cell in row.find_all('td') %}
+                <td>{{ cell.text }}</td>
+              {% endfor %}
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <h1>Cash Flows</h1>
+    <table>
+      <thead>
+        <tr>
+          {% for header in h %}
+            <th>{{ header }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in r %}
+          <tr>
+            {% for cell in row %}
+              <td>{{ cell }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

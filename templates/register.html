@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='reg_styles.css') }}">
+</head>
+<body>
+	<div class="container">
+		<h2>Register</h2>
+		{% if error_msg %}
+		<div class="message">{{ error_msg }}</div>
+		{% endif %}
+		{% if error %}
+		<div class="message">{{ error }}</div>
+		{% endif %}
+		<form method="POST">
+			<label>Username</label>
+			<input type="text" name="username" required autocomplete="off">
+			<label>Password</label>
+			<input type="password" name="password" required autocomplete="off">
+			<input type="submit" value="Register">
+		</form>
+		<p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+	</div>
+</body>
+</html>

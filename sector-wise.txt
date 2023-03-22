@@ -1,0 +1,59 @@
+Consumer Discretionary:
+
+Titan
+Consumer Staples:
+
+Nestle India
+Hindustan Unilever
+Britannia
+Energy:
+
+ONGC
+Power Grid Corporation
+Reliance Industries
+Coal India
+GAIL
+Financials:
+
+HDFC Bank
+Kotak Mahindra Bank
+ICICI Bank
+Bajaj Finance
+Axis Bank
+IndusInd Bank
+State Bank of India
+Health Care:
+
+Sun Pharma
+Dr Reddy's Laboratories
+Industrials:
+
+Larsen & Toubro
+Bajaj Auto
+Eicher Motors
+UltraTech Cement
+Grasim Industries
+JSW Steel
+Information Technology:
+
+Wipro
+Tech Mahindra
+TCS
+HCL Technologies
+Infosys
+Materials:
+
+Tata Steel
+Hindalco Industries
+Vedanta
+Real Estate:
+
+Shree Cement
+Indus Towers
+Telecommunication Services:
+
+Bharti Airtel
+Utilities:
+
+NTPC
+UPL

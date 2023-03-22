@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Market Screener</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            background-color: #F6F6F6;
+            color: #333333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        nav {
+			background-color: #ffffff;
+			color: #000000;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 20px;
+			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+			font-family: Helvetica, sans-serif;
+			font-size: 18px;
+		}
+		
+		nav a {
+			color: #000000;
+			text-decoration: none;
+			margin-right: 30px;
+			padding: 10px;
+			border-radius: 5px;
+			transition: all 0.2s ease-in-out;
+		}
+		
+		nav a:hover {
+			background-color: #000000;
+			color: #ffffff;
+		}
+		
+		nav .active {
+			font-weight: bold;
+			color: #00CC00;
+		}
+		
+		nav .right button {
+			background-color: #00CC00;
+			color: #FFFFFF;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+			font-weight: bold;
+		}
+		
+		nav .right button:hover {
+			background-color: #FFFFFF;
+			color: #000000;
+		}
+		
+		
+        
+        h1 {
+            font-size: 48px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        h4 {
+            font-size: 24px;
+            margin-top: 20px;
+            margin-bottom: 0;
+            text-align: center;
+        }
+        
+        .posters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .posters img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+		.posters img:hover {
+			transform: scale(1.1);
+			transition: transform 0.3s ease-in-out;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+		  }
+		  
+        
+        footer {
+            background-color: #000000;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+        
+        footer p {
+            margin: 0;
+        }
+        
+        footer a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a class="active" href="/">Home</a>
+        <a href="/about">About Us</a>
+        <div class="right">
+            <button onclick="openLogin()">Login</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Welcome to Stock Market Screener</h1>
+        <img src="https://cdn-static.screener.in/img/logo-black.f44abb4998d1.svg">
+		<h4>Way to go, Stock Market Analyzer!!</h4>
+		<div class="posters">
+			<a href="https://in.investing.com/equities/india"><img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/poster-design-template-8511e2095bf9ab039d8c77b1aa70ab64.jpg?ts=1664732850"></a>
+			<a href="https://www.5paisa.com/stock-market-guide/stock-share-market/how-to-invest-in-stock-market-for-beginners"><img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/forex-design-template-071aafc31eb1c4f5dcc734c3542e55e1.jpg?ts=1676287830"></a>
+			<a href="https://www.nseindia.com/invest/first-time-investor-opening-an-account"><img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/poster-design-template-7033ca7dc010ef2630df48bccb02fdb5.jpg?ts=1637012103"></a>
+		</div>
+	</div>
+
+	<footer>
+		<p>All rights reserved &copy; Stock Market Screener 2023</p>
+	</footer>
+
+	<script>
+		function openLogin() {
+			window.location.href = "/login";
+		}
+	</script>
+</body>
+</html>
+
+
+		
