@@ -73,3 +73,21 @@ Feel free to embark on this journey with us! Contributions in the form of issues
 - [Power BI](https://powerbi.microsoft.com/)
 - [SQLite](https://www.sqlite.org/)
 
+##Sample Images
+<p align="center">
+  <img src="images/home_page.png" width="400" alt="Image 1">
+  <img src="images/login.png" width="400" alt="Image 2">
+</p>
+<p align="center">
+  <img src="images/register.png" width="400" alt="Image 1">
+  <img src="images/search1.png" width="400" alt="Image 2">
+</p>
+<p align="center">
+  <img src="images/search2.png" width="400" alt="Image 1">
+  <img src="images/search3.png" width="400" alt="Image 2">
+</p>
+<p align="center">
+  <img src="images/dashboard1.png" width="400" alt="Image 1">
+  <img src="images/dashboard2.png" width="400" alt="Image 2">
+</p>
+
